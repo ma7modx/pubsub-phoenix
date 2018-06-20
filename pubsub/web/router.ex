@@ -17,6 +17,9 @@ defmodule Pubsub.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/channels", ChannelController
+    resources "/users", UserController
+    resources "/user_channels", UserChannelController
   end
 
   # Other scopes may use custom stacks.

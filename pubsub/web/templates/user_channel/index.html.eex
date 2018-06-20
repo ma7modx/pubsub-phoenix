@@ -1,0 +1,28 @@
+<h2>Listing user channels</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Channel</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user_channel <- @user_channels do %>
+    <tr>
+      <td><%= user_channel.user_id %></td>
+      <td><%= user_channel.channel_id %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: user_channel_path(@conn, :show, user_channel), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: user_channel_path(@conn, :edit, user_channel), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: user_channel_path(@conn, :delete, user_channel), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New user channel", to: user_channel_path(@conn, :new) %></span>

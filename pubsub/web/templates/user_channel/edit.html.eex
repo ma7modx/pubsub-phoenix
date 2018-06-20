@@ -1,0 +1,6 @@
+<h2>Edit user channel</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: user_channel_path(@conn, :update, @user_channel) %>
+
+<span><%= link "Back", to: user_channel_path(@conn, :index) %></span>
