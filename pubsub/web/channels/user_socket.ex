@@ -3,6 +3,7 @@ defmodule Pubsub.UserSocket do
 
   ## Channels
   # channel "room:*", Pubsub.RoomChannel
+  channel "sub:*", Pubsub.SubChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
