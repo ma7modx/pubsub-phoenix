@@ -5,6 +5,7 @@ defmodule Pubsub.User do
     field :name, :string
     field :email, :string
     field :password, :string
+    many_to_many :channels, Pubsub.Channel, join_through: "user_channels"
 
     timestamps()
   end

@@ -62,4 +62,13 @@ defmodule Pubsub.ChannelController do
     |> put_flash(:info, "Channel deleted successfully.")
     |> redirect(to: channel_path(conn, :index))
   end
+
+  def broadcast(conn, %{"id" => id}) do
+    channel = Repo.get!(Channel, id)
+    channel.broadcast()
+
+    conn
+    |> put_flash(:info, "Channel broadcasted successfully.")
+    |> redirect(to: channel_path(conn, :show, channel))
+  end
 end
