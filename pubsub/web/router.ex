@@ -22,6 +22,7 @@ defmodule Pubsub.Router do
     end
     resources "/users", UserController
     resources "/user_channels", UserChannelController
+    resources "/events", EventController
   end
 
   # Other scopes may use custom stacks.
