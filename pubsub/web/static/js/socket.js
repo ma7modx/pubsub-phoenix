@@ -61,14 +61,16 @@ socket.connect()
 //   .receive("error", resp => { console.log("Unable to join", resp) })
 
 
-let channel2 = socket.channel("subscription:2")
-channel2.join()
+let sub_channel = socket.channel("subscription:2")
+sub_channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
-let channel3 = socket.channel("subscription")
-channel3.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+sub_channel.on('new_event', function (payload) { // listen to the event
+  var title = payload.title || 'Null';
+  var desc = payload.desc || 'Null';
+  console.log("title: ", title)
+  console.log("desc: ", desc)
+});
 
 export default socket
