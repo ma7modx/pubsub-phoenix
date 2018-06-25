@@ -1,5 +1,7 @@
 defmodule Pubsub.Channel do
   use Pubsub.Web, :model
+  alias Pubsub.Repo
+  alias Pubsub.Event
 
   schema "channels" do
     field :name, :string
@@ -17,12 +19,8 @@ defmodule Pubsub.Channel do
     |> validate_required([:name])
   end
 
-  def broadcast(id) do
-    channel = Channel
-      |> Repo.get(id)
-      |> Repo.preload(:users)
-    
-    users = channel.users
-
+  def broadcast(id, event \\ %{}) do
+    Event.changeset(%Event{}, event) |> Repo.insert
+    Pubsub.Endpoint.broadcast! "subscription:" <> id, "new_event", event
   end
 end

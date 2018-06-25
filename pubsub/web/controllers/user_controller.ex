@@ -28,7 +28,11 @@ defmodule Pubsub.UserController do
 
   def show(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
-    render(conn, "show.html", user: user)
+    |> Repo.preload(:channels)
+    # import IEx
+    # IEx.pry
+
+    render(conn, :show, user: user)
   end
 
   def edit(conn, %{"id" => id}) do
