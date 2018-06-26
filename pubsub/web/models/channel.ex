@@ -20,7 +20,7 @@ defmodule Pubsub.Channel do
   end
 
   def broadcast(id, event \\ %{}) do
-    Event.changeset(%Event{}, event) |> Repo.insert
+    Event.changeset(%Event{channel_id: String.to_integer(id)}, event) |> Repo.insert
     Pubsub.Endpoint.broadcast! "subscription:" <> id, "new_event", event
   end
 end

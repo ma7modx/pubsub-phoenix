@@ -66,7 +66,10 @@ defmodule Pubsub.ChannelController do
 
   def new_broadcast(conn, %{"channel_id" => id}) do
     channel = Repo.get!(Channel, id)
-    render(conn, "new_broadcast.html", channel: channel, connection: conn)
+    # import IEx
+    # IEx.pry
+    render(conn, "new_broadcast.html", channel: channel, connection: conn,
+      action: Router.Helpers.channel_broadcast_path(conn, :broadcast, id))
   end
 
   def broadcast(conn, %{"channel_id" => id, "event_params" => event_params}) do
@@ -74,6 +77,6 @@ defmodule Pubsub.ChannelController do
 
     conn
     |> put_flash(:info, "Channel broadcasted successfully.")
-    |> redirect(to: channel_path(conn, :show, channel))
+    |> redirect(to: channel_path(conn, :show, id))
   end
 end

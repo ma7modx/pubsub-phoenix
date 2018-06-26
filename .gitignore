@@ -1,0 +1,46 @@
+
+# App artifacts
+/_build
+/db
+/deps
+/*.ez
+
+# Generated on crash by the VM
+erl_crash.dump
+
+# Static artifacts
+/node_modules
+
+# Since we are building assets from web/static,
+# we ignore priv/static. You may want to comment
+# this depending on your deployment strategy.
+/priv/static/
+
+# The config/prod.secret.exs file by default contains sensitive
+# data and you should not commit it into version control.
+#
+# Alternatively, you may comment the line below and commit the
+# secrets file as long as you replace its contents by environment
+# variables.
+/config/prod.secret.exs
+
+pubsub/.elixir_ls/
+pubsub/.elixir_ls
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.ChannelView.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/.mix/compile.elixir
+pubsub/.elixir_ls/build/test/lib/pubsub/.mix/compile.xref
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.Channel.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.ChannelController.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.Endpoint.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.ErrorView.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.LayoutView.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.PageController.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.PageView.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.Router.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.Router.Helpers.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.User.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.UserChannelController.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.UserChannelView.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.UserController.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.UserSocket.beam
+pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.UserView.beam
