@@ -2,6 +2,7 @@ defmodule Pubsub.ChannelController do
   use Pubsub.Web, :controller
 
   alias Pubsub.Channel
+  alias Pubsub.Router
 
   def index(conn, _params) do
     channels = Repo.all(Channel)
@@ -63,9 +64,13 @@ defmodule Pubsub.ChannelController do
     |> redirect(to: channel_path(conn, :index))
   end
 
-  def broadcast(conn, %{"id" => id}) do
+  def new_broadcast(conn, %{"channel_id" => id}) do
     channel = Repo.get!(Channel, id)
-    channel.broadcast()
+    render(conn, "new_broadcast.html", channel: channel, connection: conn)
+  end
+
+  def broadcast(conn, %{"channel_id" => id, "event_params" => event_params}) do
+    channel = Channel.broadcast(id, event_params)
 
     conn
     |> put_flash(:info, "Channel broadcasted successfully.")

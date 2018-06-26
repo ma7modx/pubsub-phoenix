@@ -1,0 +1,31 @@
+
+<h2>Broadcast channel</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @channel.name %>
+  </li>
+
+</ul>
+
+<%= form_for @conn, :broadcast, fn f -> %>
+  <div class="form-group">
+    <%= label f, :title, class: "control-label" %>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= text_input f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<span><%= link "Back", to: channel_path(@conn, :index) %></span>

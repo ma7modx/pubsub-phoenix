@@ -19,6 +19,7 @@ defmodule Pubsub.Router do
     get "/", PageController, :index
     resources "/channels", ChannelController do
       post "/broadcast", ChannelController, :broadcast, as: :broadcast
+      get "/broadcast", ChannelController, :new_broadcast, as: :broadcast
     end
     resources "/users", UserController
     resources "/user_channels", UserChannelController
