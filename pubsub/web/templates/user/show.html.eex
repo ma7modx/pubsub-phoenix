@@ -1,7 +1,9 @@
 <h2>Show user</h2>
 
-<ul>
 
+
+<ul>
+  <input class="user_id", hidden="true", value="<%= @user.id %>" />
   <li>
     <strong>Name:</strong>
     <%= @user.name %>
@@ -12,12 +14,15 @@
     <%= @user.email %>
   </li>
 
-  <li>
-    <strong>Password:</strong>
-    <%= @user.password %>
-  </li>
+</ul>
 
+
+<ul>
+  <h4>Notifications</h4>
+    <div class="notifications"/>
 </ul>
 
 <span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
 <span><%= link "Back", to: user_path(@conn, :index) %></span>
+
+<script src="<%= static_path(@conn, "/js/user.js") %>"></script>

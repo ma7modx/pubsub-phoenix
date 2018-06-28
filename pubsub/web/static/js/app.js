@@ -20,18 +20,3 @@ import "phoenix_html"
 
 import socket from "./socket"
 console.log("kokokooooo")
-
-let user_channel = socket.channel("subscription:user:1") // shouldn't be static
-user_channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
-
-user_channel.on('new_event', function (payload) { // listen to the event
-  var title = payload.title || 'Null';
-  var desc = payload.description || 'Null';
-
-  console.log("title: ", title)
-  console.log("desc: ", desc)
-  var new_div = "<div>" + title + ": " + desc + "</div>"
-  $(".events-container").append(new_div)
-});

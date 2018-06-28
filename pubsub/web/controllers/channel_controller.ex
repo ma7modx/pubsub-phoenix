@@ -76,6 +76,6 @@ defmodule Pubsub.ChannelController do
 
     conn
     |> put_flash(:info, "Channel broadcasted successfully.")
-    |> redirect(to: channel_path(conn, :show, id))
+    |> redirect(to: Router.Helpers.channel_broadcast_path(conn, :broadcast, id))
   end
 end

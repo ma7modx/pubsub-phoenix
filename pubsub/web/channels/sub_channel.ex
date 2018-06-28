@@ -27,9 +27,6 @@ defmodule Pubsub.SubChannel do
   end
 
   def handle_out("new_event", %{"title" => title, "description" => descreption}, socket) do
-    import IEx
-    IEx.pry
-
     payload = %{title: title, description: descreption}
     push(socket, "new_event", payload)
 
