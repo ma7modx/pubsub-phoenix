@@ -25,7 +25,6 @@ erl_crash.dump
 /config/prod.secret.exs
 
 pubsub/.elixir_ls/
-pubsub/.elixir_ls
 pubsub/.elixir_ls/build/test/lib/pubsub/ebin/Elixir.Pubsub.ChannelView.beam
 pubsub/.elixir_ls/build/test/lib/pubsub/.mix/compile.elixir
 pubsub/.elixir_ls/build/test/lib/pubsub/.mix/compile.xref

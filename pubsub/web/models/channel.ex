@@ -21,6 +21,10 @@ defmodule Pubsub.Channel do
 
   def broadcast(id, event \\ %{}) do
     Event.changeset(%Event{channel_id: String.to_integer(id)}, event) |> Repo.insert
-    Pubsub.Endpoint.broadcast! "subscription:" <> id, "new_event", event
+
+    channel = Repo.get!(__MODULE__, id) |> Repo.preload(:users)
+    Enum.each(channel.users, fn user ->
+      Pubsub.Endpoint.broadcast! "subscription:user:" <> Integer.to_string(user.id), "new_event", event
+    end)
   end
 end
